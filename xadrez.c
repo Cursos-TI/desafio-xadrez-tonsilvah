@@ -1,32 +1,81 @@
-#include <stdio.h>
+/*
+* Desafio de Programação - Movimentos do Xadrez
+* Arquivo: xadrez.c
+* * O objetivo é fazer as peças andarem usando os loops
+* for, while e do-while.
+*/
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Precisa disso pra usar o printf
+#include <stdio.h> 
+#include <stdlib.h> 
 
+// Funcao principal
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    // Vou fazer uma parte pra cada peca
+    printf("Iniciando simulacao de xadrez!\n\n");
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    // --- 1. Torre (Vou usar o FOR) ---
+    printf("--- Movimento da Torre (5 casas) ---\n");
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // 5 casas pra direita
+    int passos_torre = 5;
+    int i; // 'i' é o contador
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    // Loop for: comeca em 0 e vai ate ser menor que 5
+    for (i = 0; i < passos_torre; i++) {
+        // A torre anda reto
+        printf("Direita\n");
+    }
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Colocar um espaco pra separar
+    printf("\n");
 
-    return 0;
+
+    // --- 2. Bispo (Vou usar o WHILE) ---
+    printf("--- Movimento do Bispo (5 casas) ---\n");
+
+    // O bispo tambem anda 5 casas
+    int passos_bispo = 5;
+    int contador_bispo = 0; // Preciso de um contador que comeca em zero
+
+    // Loop while: enquanto o contador for menor que 5
+    while (contador_bispo < passos_bispo) {
+        
+        // O bispo anda na diagonal
+        printf("Cima, Direita\n");
+
+        // IMPORTANTE: tenho que aumentar o contador!
+        // Se eu esquecer isso, o programa trava (loop infinito)
+        contador_bispo++; // Isso soma +1 no contador
+    }
+
+    // Mais um espaco
+    printf("\n");
+
+
+    // --- 3. Rainha (Vou usar o DO-WHILE) ---
+    printf("--- Movimento da Rainha (8 casas) ---\n");
+
+    // A rainha anda 8 casas pra esquerda
+    int passos_rainha = 8;
+    int j = 0; // Vou usar 'j' pra nao confundir com o 'i' la de cima
+
+    // Loop do-while: ele faz primeiro e pergunta depois
+    do {
+        // A rainha anda pra esquerda
+        printf("Esquerda\n");
+
+        // Aumenta o contador 'j'
+        j = j + 1; // (é a mesma coisa que j++)
+
+    } while (j < passos_rainha); // Checa a condicao aqui no final
+
+
+    // Avisar que acabou
+    printf("\n--- Simulacao Terminada! ---\n");
+
+    // Retorna 0 pra dizer que o programa funcionou
+    return 0; 
 }
